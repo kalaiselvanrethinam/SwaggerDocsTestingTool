@@ -39,14 +39,14 @@ git clone https://github.com/yourusername/TestingSwaggerDocs.git
 cd TestingSwaggerDocs
 mvn clean install
 
-🚀 Running the Application
-▶️ Step 1: Start the Spring Boot App
+## 🚀 Running the Application
+### ▶️ Step 1: Start the Spring Boot App
 Use Maven to run the application:
 
 mvn spring-boot:run
 
-🧪 Running the Tests
-✅ Step 2: Run the Tests
+## 🧪 Running the Tests
+### ✅ Step 2: Run the Tests
 Run all tests using:
 
 mvn test
