@@ -1,79 +1,79 @@
-This project is designed to test API endpoints defined in a Swagger specification using RestAssured for sending requests and Allure for generating test reports. It fetches the Swagger API documentation (Petstore API) and performs tests on the endpoints dynamically.
+# 🧪 Testing Swagger Documentation API Endpoints
 
-Features
-Fetch API details (GET, POST, PUT, DELETE) from a Swagger JSON specification.
+This project provides a tool for dynamically testing API endpoints defined in Swagger (OpenAPI) documentation. It uses Swagger JSON to fetch API paths and tests them using **RestAssured** for GET, PUT, and DELETE methods. It supports dynamic path parameters, validates status codes and content types, and can be integrated with CI/CD pipelines and Allure reporting.
 
-Perform API testing using RestAssured.
+---
 
-Generate Allure reports with detailed test execution results.
+## 📌 Features
 
-Prerequisites
-JDK 8+: Java Development Kit 8 or later.
+- ✅ **Swagger Parser**: Fetches and parses Swagger JSON from a given URL.
+- ✅ **Dynamic Endpoint Testing**: Automatically tests GET, PUT, and DELETE endpoints using RestAssured.
+- ✅ **Response Validation**: Checks status codes and content types against expected Swagger definitions.
+- ✅ **Dynamic Parameter Handling**: Replaces `{id}` or other path params with valid values.
+- ✅ **Optional Reporting**: Supports Allure for beautiful test reports.
+- ✅ **CI/CD Compatible**: Easily integrate with Jenkins, GitLab CI, or GitHub Actions.
 
-Maven: Used for build and dependencies management.
+---
 
-Allure Commandline (optional, for generating reports): Allure Installation.
+## 🔧 Prerequisites
 
-Installation
-1. Clone the Repository
-bash
-Copy
-Edit
-git clone https://github.com/your-username/TestingSwaggerDocs.git
+Make sure you have the following installed:
+
+- **Java 8+**
+- **Maven** or **Gradle**
+- **Spring Boot**
+- **Internet connection** (for fetching Swagger JSON)
+
+---
+
+## ⚙️ Setup Instructions
+
+### ✅ Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/TestingSwaggerDocs.git
+
+### ✅ Step 2: Navigate to the Project Directory
+
+```bash
 cd TestingSwaggerDocs
-2. Build the Project
-Make sure you have Maven installed. Run the following to build the project:
-
-bash
-Copy
-Edit
 mvn clean install
-3. Run the Tests
-You can execute the tests using Maven and TestNG:
 
-bash
-Copy
-Edit
+🚀 Running the Application
+▶️ Step 1: Start the Spring Boot App
+Use Maven to run the application:
+
+mvn spring-boot:run
+
+🧪 Running the Tests
+✅ Step 2: Run the Tests
+Run all tests using:
+
 mvn test
-This will run the API tests and validate endpoints against the expected status codes and content types.
 
-4. Generate Allure Reports (Optional)
-If you'd like to generate reports, run:
+📊 Test Coverage
+✅ GET: Checks for response structure and expected values.
 
-bash
-Copy
-Edit
-mvn allure:serve
-This command will open the Allure report in your browser, showing detailed test execution results.
+✅ PUT: Simulates update and validates response.
 
-Project Structure
-SwaggerParserService.java: Parses Swagger JSON to extract API endpoints.
+✅ DELETE: Ensures proper deletion and status.
 
-EndpointInfo.java: Contains data related to API endpoints (method, path, status code, content type).
+🎁 Optional Features
+📈 Allure Reporting
+Enable rich test reporting with Allure.
 
-TestingSwaggerDocsApplication.java: Entry point for the Spring Boot application, responsible for fetching the Swagger URL and displaying endpoint info.
+Add Allure dependencies in pom.xml
 
-EndpointTest.java: Contains the API tests using RestAssured. It runs tests for GET, POST, PUT, DELETE operations.
+After tests, run:
 
-pom.xml: Maven build file, including dependencies for RestAssured, TestNG, and Allure.
+allure serve target/allure-results
 
-Running Tests
-The test suite performs the following tasks:
+🙌 Acknowledgements
+Swagger / OpenAPI for API definitions
 
-Parse the Swagger URL to extract API endpoints.
+RestAssured for HTTP testing
 
-Run tests for each endpoint using the HTTP methods (GET, POST, PUT, DELETE).
+Spring Boot
 
-Validate response codes and content types against expected values.
+Allure for test reporting
 
-Generate Allure reports for test results.
-
-Troubleshooting
-1. Error: Unable to access jarfile
-If you see this error, ensure you are in the correct directory where the JAR file is located and that the file is accessible.
-
-2. Missing Main Manifest Attribute
-If you encounter the no main manifest attribute error, make sure the JAR is properly packaged with a Main-Class attribute in the manifest.
-
-3. Endpoint Errors
-For 500 Internal Server errors, check if the endpoint requires additional configurations, body content, or headers.
